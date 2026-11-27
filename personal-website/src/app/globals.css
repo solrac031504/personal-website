@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f4ee;
+  --foreground: #1c2924;
+  --muted: #6e7770;
+  --accent: #c5ee7d;
 }
 
 @theme inline {
@@ -12,15 +14,319 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.site-shell {
+  width: min(100% - 64px, 1180px);
+  margin: 0 auto;
+  padding: 28px 0 24px;
+}
+
+.site-header,
+.wordmark,
+.portrait-caption,
+.projects-heading,
+.project-placeholder,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dcded4;
+}
+
+.wordmark {
+  justify-content: flex-start;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.wordmark-icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--foreground);
+  color: var(--accent);
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+
+.header-note,
+.eyebrow,
+.caption-index {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.header-note {
+  margin: 0;
+  color: var(--muted);
+}
+
+.page-title {
+  margin: 42px 0 36px;
+  font-size: clamp(3rem, 7.8vw, 6.4rem);
+  font-weight: 550;
+  letter-spacing: -0.075em;
+  line-height: 0.92;
+}
+
+.page-title span {
+  display: block;
+  color: #78866c;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-areas:
+    "portrait resume"
+    "projects resume";
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 20px;
+}
+
+.portrait-card,
+.resume-card,
+.projects-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.portrait-card {
+  grid-area: portrait;
+  padding: 12px;
+  background: #e7e5dc;
+}
+
+.portrait-frame {
+  overflow: hidden;
+  aspect-ratio: 1.36;
+  border-radius: 11px;
+  background: #d7d4ca;
+}
+
+.portrait-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 43%;
+}
+
+.portrait-caption {
+  padding: 13px 3px 1px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.caption-index {
+  color: var(--muted);
+}
+
+.resume-card {
+  position: relative;
+  grid-area: resume;
+  display: flex;
+  min-height: 440px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(28px, 5vw, 58px);
+  background: #1d332c;
+  color: #f5f4ee;
+}
+
+.eyebrow {
+  margin: 0 0 28px;
+  color: #8fa393;
+}
+
+.resume-card h2,
+.projects-card h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.resume-copy {
+  max-width: 380px;
+  margin: 22px 0 30px;
+  color: #c4cec4;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.resume-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resume-topics span {
+  padding: 9px 13px;
+  border: 1px solid #52675b;
+  border-radius: 999px;
+  color: #e2e8dd;
+  font-size: 0.76rem;
+}
+
+.resume-note {
+  margin: auto 0 0;
+  padding-top: 40px;
+  color: #a9b5a8;
+  font-size: 0.78rem;
+}
+
+.card-decoration {
+  position: absolute;
+  right: -14px;
+  bottom: -105px;
+  color: rgb(245 244 238 / 4%);
+  font-family: Georgia, serif;
+  font-size: 20rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.projects-card {
+  grid-area: projects;
+  padding: 25px 28px 23px;
+  background: #e8ebdf;
+}
+
+.projects-heading {
+  align-items: flex-start;
+}
+
+.projects-card .eyebrow {
+  margin-bottom: 17px;
+  color: #7d8977;
+}
+
+.projects-card h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+}
+
+.projects-spark {
+  color: #899974;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.project-placeholder {
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 16px;
+  border-top: 1px solid #cdd3c4;
+}
+
+.project-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #94a875;
+}
+
+.project-placeholder p {
+  flex: 1;
+  margin: 0;
+  color: #536052;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.project-arrow {
+  color: #6b795f;
+  font-size: 1.2rem;
+}
+
+.site-footer {
+  padding-top: 20px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.site-footer a {
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible,
+.wordmark:hover,
+.wordmark:focus-visible {
+  color: #597448;
+}
+
+@media (max-width: 720px) {
+  .site-shell {
+    width: min(100% - 36px, 540px);
+    padding-top: 20px;
+  }
+
+  .header-note {
+    font-size: 0.56rem;
+  }
+
+  .page-title {
+    margin: 35px 0 27px;
+    font-size: clamp(2.8rem, 11vw, 4.8rem);
+  }
+
+  .content-grid {
+    grid-template-areas:
+      "portrait"
+      "resume"
+      "projects";
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .portrait-frame {
+    aspect-ratio: 1.25;
+  }
+
+  .resume-card {
+    min-height: 380px;
+    padding: 30px;
+  }
+
+  .projects-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header-note {
+    max-width: 105px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .page-title {
+    font-size: 2.55rem;
+  }
 }
