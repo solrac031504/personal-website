@@ -4,16 +4,14 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const birthday = stripTime(new Date(process.env.NEXT_PUBLIC_BIRTHDAY!));
+  const birthday = new Date(process.env.NEXT_PUBLIC_BIRTHDAY!);
 
   const [isBirthday, setIsBirthday] = useState<boolean>(false);
 
-  function stripTime(date: Date):  number {
-    return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
-  }
-
   useEffect(() => {
-    setIsBirthday(birthday === stripTime(new Date()));
+    const today = new Date();
+
+    setIsBirthday(birthday.getDay() === today.getDay() && birthday.getMonth() === today.getMonth())
   })
   
   return (
