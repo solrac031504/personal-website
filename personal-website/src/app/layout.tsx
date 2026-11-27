@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Carlos Arturo Gonzalez Zavaleta",
   description:
-    "The personal website of Carlos Arturo Gonzalez Zavaleta, featuring a resume and projects.",
+    "The personal website of Carlos Arturo Gonzalez Zavaleta.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
