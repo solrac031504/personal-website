@@ -73,7 +73,6 @@ export default function Home() {
         </section>
 
         <section className="resume-card" id="resume" aria-labelledby="resume-title">
-          <p className="eyebrow">02 / BACKGROUND</p>
           <h2 id="resume-title">Resume &amp; more</h2>
           <p className="resume-copy">
             A home for my experience, education, and the skills I&apos;ve picked
@@ -93,7 +92,6 @@ export default function Home() {
         <section className="projects-card" id="projects" aria-labelledby="projects-title">
           <div className="projects-heading">
             <div>
-              <p className="eyebrow">03 / IN THE WORKS</p>
               <h2 id="projects-title">Projects</h2>
             </div>
             <span className="projects-spark" aria-hidden="true">
