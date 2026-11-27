@@ -121,6 +121,8 @@ a {
 }
 
 .portrait-frame {
+  width: 65%;
+  margin-inline: auto;
   overflow: hidden;
   border-radius: 11px;
   background: #d7d4ca;
