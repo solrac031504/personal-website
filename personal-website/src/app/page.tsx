@@ -70,10 +70,6 @@ export default function Home() {
                   />
                 )}
           </div>
-          <div className="portrait-caption">
-            <span>Nice to meet you</span>
-            <span className="caption-index">01 / 03</span>
-          </div>
         </section>
 
         <section className="resume-card" id="resume" aria-labelledby="resume-title">
