@@ -1,6 +1,20 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const birthday = stripTime(new Date(process.env.NEXT_PUBLIC_BIRTHDAY!));
+  const today = stripTime(new Date());
+
+  const [isBirthday, setIsBirthday] = useState<boolean>(false);
+
+  function stripTime(date: Date):  number {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+  }
+
+  useEffect(() => {
+    setIsBirthday(birthday === today);
+  }, [birthday, today])
+  
   return (
     <main className="site-shell" id="home">
       <header className="site-header">
@@ -10,7 +24,6 @@ export default function Home() {
           </span>
           <span>Personal site</span>
         </a>
-        <p className="header-note">A LITTLE SPACE ON THE INTERNET</p>
       </header>
 
       <h1 className="page-title">
@@ -21,14 +34,27 @@ export default function Home() {
       <div className="content-grid">
         <section className="portrait-card" aria-label="Portrait">
           <div className="portrait-frame">
-            <Image
-              src="/headshot.png"
-              alt="Portrait of Carlos Arturo Gonzalez Zavaleta"
-              width={384}
-              height={389}
-              priority
-              className="portrait-image"
-            />
+            {isBirthday
+              ? (
+                  <Image
+                    src="/headshot.png"
+                    alt="Portrait of Carlos Arturo Gonzalez Zavaleta"
+                    width={384}
+                    height={389}
+                    priority
+                    className="portrait-image"
+                  />
+                )
+              : (
+                  <Image
+                    src="/bday_headshot.png"
+                    alt="Birthday special portrait of Carlos Arturo Gonzalez Zavaleta"
+                    width={384}
+                    height={389}
+                    priority
+                    className="portrait-image"
+                  />
+                )}
           </div>
           <div className="portrait-caption">
             <span>Nice to meet you</span>
