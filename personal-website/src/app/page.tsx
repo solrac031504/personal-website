@@ -1,9 +1,10 @@
+'use client'
+
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const birthday = stripTime(new Date(process.env.NEXT_PUBLIC_BIRTHDAY!));
-  const today = stripTime(new Date());
 
   const [isBirthday, setIsBirthday] = useState<boolean>(false);
 
@@ -12,8 +13,8 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setIsBirthday(birthday === today);
-  }, [birthday, today])
+    setIsBirthday(birthday === stripTime(new Date()));
+  })
   
   return (
     <main className="site-shell" id="home">
@@ -37,7 +38,7 @@ export default function Home() {
             {isBirthday
               ? (
                   <Image
-                    src="/headshot.png"
+                    src="/bday_headshot.png"
                     alt="Portrait of Carlos Arturo Gonzalez Zavaleta"
                     width={384}
                     height={389}
@@ -47,7 +48,7 @@ export default function Home() {
                 )
               : (
                   <Image
-                    src="/bday_headshot.png"
+                    src="/headshot.png"
                     alt="Birthday special portrait of Carlos Arturo Gonzalez Zavaleta"
                     width={384}
                     height={389}
