@@ -1,19 +1,34 @@
 'use client'
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const birthday = new Date(process.env.NEXT_PUBLIC_BIRTHDAY!);
+
+function subscribeToBirthday() {
+  return () => {};
+}
+
+function getBirthdaySnapshot() {
+  const today = new Date();
+
+  return (
+    birthday.getDate() === today.getDate() &&
+    birthday.getMonth() === today.getMonth()
+  );
+}
+
+function getServerSnapshot() {
+  return false;
+}
 
 export default function Home() {
-  const birthday = new Date(process.env.NEXT_PUBLIC_BIRTHDAY!);
+  const isBirthday = useSyncExternalStore(
+    subscribeToBirthday,
+    getBirthdaySnapshot,
+    getServerSnapshot,
+  );
 
-  const [isBirthday, setIsBirthday] = useState<boolean>(false);
-
-  useEffect(() => {
-    const today = new Date();
-
-    setIsBirthday(birthday.getDay() === today.getDay() && birthday.getMonth() === today.getMonth())
-  })
-  
   return (
     <main className="site-shell" id="home">
       <header className="site-header">
@@ -37,7 +52,7 @@ export default function Home() {
               ? (
                   <Image
                     src="/bday_headshot.png"
-                    alt="Portrait of Carlos Arturo Gonzalez Zavaleta"
+                    alt="Portrait of Carlos Arturo Gonzalez Zavaleta wearing a birthday hat"
                     width={384}
                     height={389}
                     priority
@@ -47,7 +62,7 @@ export default function Home() {
               : (
                   <Image
                     src="/headshot.png"
-                    alt="Birthday special portrait of Carlos Arturo Gonzalez Zavaleta"
+                    alt="Portrait of Carlos Arturo Gonzalez Zavaleta"
                     width={384}
                     height={389}
                     priority
