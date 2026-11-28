@@ -1,69 +1,196 @@
 import Image from "next/image";
+import SectionNav from "../components/section-nav";
+
+const birthday = new Date(process.env.NEXT_PUBLIC_BIRTHDAY!);
+const today = new Date();
 
 export default function Home() {
+  const isBirthday = birthday.getDate() === today.getDate() && birthday.getMonth() === today.getMonth();
+  const age = getAge(birthday);
+
+  function getAge(dob: Date): number {
+    const yearDiff = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+
+    return (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) ? yearDiff - 1 : yearDiff;
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="site-shell" id="home">
+      <SectionNav />
+      <header className="site-header">
+        <a className="wordmark" href="#home" aria-label="Carlos Arturo Gonzalez Zavaleta, home">
+          <span className="wordmark-icon" aria-hidden="true">
+            C
+          </span>
+          <span>Personal site</span>
+        </a>
+      </header>
+
+      <h1 className="page-title">
+        Carlos Arturo
+        <span>Gonzalez Zavaleta</span>
+      </h1>
+
+      <div className="content-grid">
+        <section className="portrait-card" aria-label="Portrait">
+          <div className="portrait-frame">
+            {isBirthday
+              ? (
+                  <Image
+                    src="/bday_headshot.png"
+                    alt="Portrait of Carlos Arturo Gonzalez Zavaleta wearing a birthday hat"
+                    width={384}
+                    height={389}
+                    priority
+                    className="portrait-image"
+                  />
+                )
+              : (
+                  <Image
+                    src="/headshot.png"
+                    alt="Portrait of Carlos Arturo Gonzalez Zavaleta"
+                    width={384}
+                    height={389}
+                    priority
+                    className="portrait-image"
+                  />
+                )}
+          </div>
+        </section>
+
+        <section className="about-me-card" id="about-me" aria-labelledby="about-me-title">
+          <h2 id="about-me-title">About Me</h2>
+          <div className="about-me-copy">
+            <p>I am a {age} year-old Database Developer with a Master of Science in Computer Science and a native Spanish speaker.</p>
+            <p>I am highly interested in software development, database administration, and project management.</p>
+            <p>I am always open to working on new projects, so please feel free to reach out! I would love to participate.</p>
+            <p>I love developing new applications for both internal and community use.</p>
+            <p>In my free time, I also enjoy producing and playing music, cooking, working out, and playing video games.</p>
+          </div>
+        </section>
+
+        <section className="links-card" id="links" aria-labelledby="links-title">
+          <div className="links-heading">
+            <div>
+              <h2 id="links-title">Links</h2>
+            </div>
+            <span className="links-spark" aria-hidden="true">
+              ✳
+            </span>
+          </div>
+          <div className="links-list">
+            <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/carlos-gonzalez-764b5b217/" target="_blank">www.linkedin.com/in/carlos-gonzalez-764b5b217</a>
+            <span className="link-arrow" aria-hidden="true">
+              ↗
+            </span> </p>
+            <p><b>GitHub:</b> <a href="https://github.com/solrac031504" target="_blank">https://github.com/solrac031504</a>
+            <span className="link-arrow" aria-hidden="true">
+              ↗
+            </span></p>
+            <p><b>SoundCloud:</b> <a href="https://soundcloud.com/carlos-gonzalez-98597846" target="_blank">https://soundcloud.com/carlos-gonzalez-98597846</a>
+            <span className="link-arrow" aria-hidden="true">
+              ↗
+            </span></p>
+          </div>
+        </section>
+      </div>
+
+      <div className="details-stack">
+        <section className="details-section" id="experience" aria-labelledby="experience-title">
+          <h2 id="experience-title">Experience</h2>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>Database Developer</h3>
+              <span>Jun. 2025 – Present</span>
+            </header>
+            <p className="details-entry-meta">Massey Services · Orlando, FL</p>
+            <ul>
+              <li>Supported, maintained, and developed ETL processes</li>
+              <li>Developed and optimized reports for corporate and field needs</li>
+              <li>Assumed responsibility for report development in CRM-migration project</li>
+              <li>Prepared and converted systems in acquisitions</li>
+              <li>Redesigned and modernized deployment pipelines for SSDT projects</li>
+            </ul>
+          </article>
+        </section>
+
+        <section className="details-section" id="education" aria-labelledby="education-title">
+          <h2 id="education-title">Education</h2>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>Master of Science in Computer Science</h3>
+              <span>Jan. 2025 – May. 2026</span>
+            </header>
+            <p className="details-entry-meta">University of Central Florida · Orlando, FL</p>
+          </article>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>Bachelor of Science in Computer Science</h3>
+              <span>Aug. 2022 – Dec. 2024</span>
+            </header>
+            <p className="details-entry-meta">University of Central Florida · Orlando, FL</p>
+            <ul>
+              <li>Member of Burnett Honors College</li>
+              <li>Graduated Cum Laude</li>
+            </ul>
+          </article>
+        </section>
+
+        <section className="details-section" id="projects" aria-labelledby="projects-title">
+          <h2 id="projects-title">Projects</h2>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>LoveApp</h3>
+              <span>Jun 2026 – Present</span>
+            </header>
+            <p className="details-entry-description">
+              A private, login-protected web app where two people can share calendar events, track relationship complaints, and manage notification preferences.
+            </p>
+            <p className="details-tech">Python, Flask, SQLite, SQLAlchemy, Flask-Migrate</p>
+            <p className="details-entry-meta">Repository: <a href="https://github.com/solrac031504/loveapp" target="_blank">loveapp</a></p>
+          </article>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>MusicApp</h3>
+              <span>December 2025 – Present</span>
+            </header>
+            <p className="details-entry-description">
+              A music catalog management platform for organizing artists and groups, genres and hierarchies, producers, projects, scenes, songs, and streaming services. It combines an authenticated React client with a REST API and PostgreSQL database.
+            </p>
+            <p className="details-tech">React, TypeScript, Vite, Deno, Hono, PostgreSQL, TypeORM, Flyway</p>
+            <p className="details-entry-meta">
+              Repositories:{" "}
+              <a href="https://github.com/solrac031504/musicapp-client">Client</a>
+              {" · "}
+              <a href="https://github.com/solrac031504/musicapp-server">Server</a>
+              {" · "}
+              <a href="https://github.com/solrac031504/musicapp-db">Database</a>
+            </p>
+          </article>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>Expert Networks</h3>
+              <span>May 2024 – Present</span>
+            </header>
+            <p className="details-entry-meta">NSIN · Project Manager and Database Manager</p>
+            <p className="details-tech">Node.js, Express, React, MySQL, Redis, DigitalOcean, Git, Agile, Jira</p>
+            <p className="details-entry-description">
+              A full-stack platform for finding and sorting academic experts by geography, institution, and research area. It works with a MySQL database of over 250 million records, using Redis caching to quickly return large searches.
+            </p>
+            <p className="details-entry-meta">
+              Repository:{" "}
+              <a
+                href="https://github.com/solrac031504/Expert-Networks"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Expert-Networks
+              </a>
+            </p>
+          </article>
+        </section>
+      </div>
+    </main>
   );
 }
