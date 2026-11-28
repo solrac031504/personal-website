@@ -93,6 +93,65 @@ export default function Home() {
           </div>
         </section>
       </div>
+
+      <div className="details-stack">
+        <section className="details-section" id="experience" aria-labelledby="experience-title">
+          <h2 id="experience-title">Experience</h2>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>Database Developer</h3>
+              <span>Jun. 2025 – Present</span>
+            </header>
+            <p className="details-entry-meta">Massey Services · Orlando, FL</p>
+            <ul>
+              <li>Supported, maintained, and developed ETL processes</li>
+              <li>Developed and optimized reports for corporate and field needs</li>
+              <li>Assumed responsibility for report development in CRM-migration project</li>
+              <li>Prepared and converted systems in acquisitions</li>
+              <li>Redesigned and modernized deployment pipelines for SSDT projects</li>
+            </ul>
+          </article>
+        </section>
+
+        <section className="details-section" id="education" aria-labelledby="education-title">
+          <h2 id="education-title">Education</h2>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>Master of Science in Computer Science</h3>
+              <span>Jan. 2025 – May. 2026</span>
+            </header>
+            <p className="details-entry-meta">University of Central Florida · Orlando, FL</p>
+          </article>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>Bachelor of Science in Computer Science</h3>
+              <span>Aug. 2022 – Dec. 2024</span>
+            </header>
+            <p className="details-entry-meta">University of Central Florida · Orlando, FL</p>
+            <ul>
+              <li>Member of Burnett Honors College</li>
+              <li>Graduated Cum Laude</li>
+            </ul>
+          </article>
+        </section>
+
+        <section className="details-section" id="projects" aria-labelledby="projects-title">
+          <h2 id="projects-title">Projects</h2>
+          <article className="details-entry">
+            <header className="details-entry-heading">
+              <h3>Expert Networks</h3>
+              <span>May 2024 – Present</span>
+            </header>
+            <p className="details-entry-meta">NSIN · Project Manager and Database Manager</p>
+            <p className="details-tech">Node.js, Express, React, MySQL, Redis, DigitalOcean, Git, Agile, Jira</p>
+            <ul>
+              <li>Built a full-stack application to search and sort academic experts by geographic, institutional, and academic criteria.</li>
+              <li>Led a five-person cross-functional Agile team and completed the MVP three months ahead of schedule.</li>
+              <li>Managed and optimized a MySQL database with over 250 million records, returning search results in under two minutes.</li>
+            </ul>
+          </article>
+        </section>
+      </div>
     </main>
   );
 }
