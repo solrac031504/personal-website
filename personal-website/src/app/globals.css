@@ -99,14 +99,14 @@ a {
 .content-grid {
   display: grid;
   grid-template-areas:
-    "portrait resume"
-    "links resume";
+    "portrait about-me"
+    "links about-me";
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: 20px;
 }
 
 .portrait-card,
-.resume-card,
+.about-me-card,
 .links-card {
   min-width: 0;
   overflow: hidden;
@@ -137,9 +137,9 @@ a {
   color: var(--muted);
 }
 
-.resume-card {
+.about-me-card {
   position: relative;
-  grid-area: resume;
+  grid-area: about-me;
   display: flex;
   min-height: 440px;
   flex-direction: column;
@@ -154,7 +154,7 @@ a {
   color: #8fa393;
 }
 
-.resume-card h2,
+.about-me-card h2,
 .links-card h2 {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3.5rem);
@@ -163,7 +163,7 @@ a {
   line-height: 1;
 }
 
-.resume-copy {
+.about-me-copy {
   max-width: 380px;
   margin: 22px 0 30px;
   color: #c4cec4;
@@ -171,13 +171,13 @@ a {
   line-height: 1.7;
 }
 
-.resume-topics {
+.about-me-topics {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.resume-topics span {
+.about-me-topics span {
   padding: 9px 13px;
   border: 1px solid #52675b;
   border-radius: 999px;
@@ -185,7 +185,7 @@ a {
   font-size: 0.76rem;
 }
 
-.resume-note {
+.about-me-note {
   margin: auto 0 0;
   padding-top: 40px;
   color: #a9b5a8;
@@ -295,13 +295,13 @@ a {
   .content-grid {
     grid-template-areas:
       "portrait"
-      "resume"
+      "about-me"
       "links";
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
   }
 
-  .resume-card {
+  .about-me-card {
     min-height: 380px;
     padding: 30px;
   }

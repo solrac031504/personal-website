@@ -57,20 +57,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="resume-card" id="resume" aria-labelledby="resume-title">
-          <h2 id="resume-title">About Me</h2>
-          <p className="resume-copy">
-            I am a {age} year old Database Developer.
+        <section className="about-me-card" id="about-me" aria-labelledby="about-me-title">
+          <h2 id="about-me-title">About Me</h2>
+          <p className="about-me-copy">
+            I am a {age} year-old Database Developer with a Master of Science in Computer Science. 
+            I am highly interested in software development, database administration, and project management.
+            I am always open to working on new projects, so please feel free to reach out! I would love to participate.
+            I am also a native Spanish speaker.
+            I love developing new applications for both internal and community use.
+            In my free time, I also enjoy producing and playing music, cooking, working out, and playing video games.
           </p>
-          <div className="resume-topics" aria-label="Resume topics">
-            <span>Experience</span>
-            <span>Education</span>
-            <span>Skills</span>
-          </div>
-          <p className="resume-note">More details coming soon.</p>
-          <span className="card-decoration" aria-hidden="true">
-            C
-          </span>
         </section>
 
         <section className="links-card" id="links" aria-labelledby="links-title">
@@ -83,7 +79,7 @@ export default function Home() {
             </span>
           </div>
           <div className="links-list">
-            <p><b>LinkedIn:</b> <a href="www.linkedin.com/in/carlos-gonzalez-764b5b217" target="_blank">www.linkedin.com/in/carlos-gonzalez-764b5b217</a>
+            <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/carlos-gonzalez-764b5b217/" target="_blank">www.linkedin.com/in/carlos-gonzalez-764b5b217</a>
             <span className="link-arrow" aria-hidden="true">
               ↗
             </span> </p>
