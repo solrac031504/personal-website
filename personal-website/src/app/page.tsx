@@ -82,13 +82,12 @@ export default function Home() {
               ✳
             </span>
           </div>
-          <div className="link-placeholder">
-            <span className="link-dot" aria-hidden="true" />
-            <p><b>LinkedIn:</b> <a href="www.linkedin.com/in/carlos-gonzalez-764b5b217">www.linkedin.com/in/carlos-gonzalez-764b5b217</a>
+          <div className="links-list">
+            <p><b>LinkedIn:</b> <a href="www.linkedin.com/in/carlos-gonzalez-764b5b217" target="_blank">www.linkedin.com/in/carlos-gonzalez-764b5b217</a>
             <span className="link-arrow" aria-hidden="true">
               ↗
             </span> </p>
-            <p><b>GitHub:</b> <a href="https://github.com/solrac031504">https://github.com/solrac031504</a>
+            <p><b>GitHub:</b> <a href="https://github.com/solrac031504" target="_blank">https://github.com/solrac031504</a>
             <span className="link-arrow" aria-hidden="true">
               ↗
             </span></p>
