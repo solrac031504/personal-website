@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -6,7 +6,17 @@ import { useEffect, useState } from "react";
 const birthday = new Date(process.env.NEXT_PUBLIC_BIRTHDAY!);
 
 export default function Home() {
-  const [isBirthday, setIsBirthday] = useState(false);
+  const [isBirthday, setIsBirthday] = useState<boolean>(false);
+  const [age, setAge] = useState<number>(0);
+
+  function getAge(dob: Date): number {
+    const today = new Date();
+
+    const yearDiff = today.getFullYear() - dob.getFullYear();
+    const monthDiff = today.getMonth() - dob.getMonth();
+
+    return (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) ? yearDiff - 1 : yearDiff;
+  }
 
   useEffect(() => {
     const today = new Date();
@@ -15,6 +25,8 @@ export default function Home() {
       birthday.getDate() === today.getDate() &&
         birthday.getMonth() === today.getMonth(),
     );
+
+    setAge(getAge(birthday))
   }, []);
 
   return (
@@ -63,8 +75,7 @@ export default function Home() {
         <section className="resume-card" id="resume" aria-labelledby="resume-title">
           <h2 id="resume-title">About Me</h2>
           <p className="resume-copy">
-            A home for my experience, education, and the skills I&apos;ve picked
-            up along the way.
+            I am a {age} year old Database Developer.
           </p>
           <div className="resume-topics" aria-label="Resume topics">
             <span>Experience</span>
