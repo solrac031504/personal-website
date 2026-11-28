@@ -1,33 +1,21 @@
 'use client'
 
 import Image from "next/image";
-import { useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
 
 const birthday = new Date(process.env.NEXT_PUBLIC_BIRTHDAY!);
 
-function subscribeToBirthday() {
-  return () => {};
-}
-
-function getBirthdaySnapshot() {
-  const today = new Date();
-
-  return (
-    birthday.getDate() === today.getDate() &&
-    birthday.getMonth() === today.getMonth()
-  );
-}
-
-function getServerSnapshot() {
-  return false;
-}
-
 export default function Home() {
-  const isBirthday = useSyncExternalStore<boolean>(
-    subscribeToBirthday,
-    getBirthdaySnapshot,
-    getServerSnapshot,
-  );
+  const [isBirthday, setIsBirthday] = useState(false);
+
+  useEffect(() => {
+    const today = new Date();
+
+    setIsBirthday(
+      birthday.getDate() === today.getDate() &&
+        birthday.getMonth() === today.getMonth(),
+    );
+  }, []);
 
   return (
     <main className="site-shell" id="home">
