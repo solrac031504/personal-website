@@ -29,5 +29,8 @@
     "**/app/**/default.tsx": "${dirname(1)}/${dirname} - default.tsx",
     "**/app/**/route.ts": "${dirname(1)}/${dirname} - route.ts"
   },
-  "explorer.sortOrder": "filesFirst"
+  "explorer.sortOrder": "filesFirst",
+  "[json]": {
+    "editor.formatOnSave": true
+  }
 }
