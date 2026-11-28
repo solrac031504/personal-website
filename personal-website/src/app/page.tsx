@@ -150,6 +150,24 @@ export default function Home() {
           </article>
           <article className="details-entry">
             <header className="details-entry-heading">
+              <h3>MusicApp</h3>
+              <span>December 2025 – Present</span>
+            </header>
+            <p className="details-entry-description">
+              A music catalog management platform for organizing artists and groups, genres and hierarchies, producers, projects, scenes, songs, and streaming services. It combines an authenticated React client with a REST API and PostgreSQL database.
+            </p>
+            <p className="details-tech">React, TypeScript, Vite, Deno, Hono, PostgreSQL, TypeORM, Flyway</p>
+            <p className="details-entry-meta">
+              Repositories:{" "}
+              <a href="https://github.com/solrac031504/musicapp-client">Client</a>
+              {" · "}
+              <a href="https://github.com/solrac031504/musicapp-server">Server</a>
+              {" · "}
+              <a href="https://github.com/solrac031504/musicapp-db">Database</a>
+            </p>
+          </article>
+          <article className="details-entry">
+            <header className="details-entry-heading">
               <h3>Expert Networks</h3>
               <span>May 2024 – Present</span>
             </header>
