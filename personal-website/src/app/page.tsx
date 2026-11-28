@@ -139,6 +139,17 @@ export default function Home() {
           <h2 id="projects-title">Projects</h2>
           <article className="details-entry">
             <header className="details-entry-heading">
+              <h3>LoveApp</h3>
+              <span>Jun 2026 – Present</span>
+            </header>
+            <p className="details-entry-description">
+              A private, login-protected web app where two people can share calendar events, track relationship complaints, and manage notification preferences.
+            </p>
+            <p className="details-tech">Python, Flask, SQLite, SQLAlchemy, Flask-Migrate</p>
+            <p className="details-entry-meta">Repository: <a href="https://github.com/solrac031504/loveapp" target="_blank">https://github.com/solrac031504/loveapp</a></p>
+          </article>
+          <article className="details-entry">
+            <header className="details-entry-heading">
               <h3>Expert Networks</h3>
               <span>May 2024 – Present</span>
             </header>
