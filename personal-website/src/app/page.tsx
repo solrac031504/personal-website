@@ -146,7 +146,7 @@ export default function Home() {
               A private, login-protected web app where two people can share calendar events, track relationship complaints, and manage notification preferences.
             </p>
             <p className="details-tech">Python, Flask, SQLite, SQLAlchemy, Flask-Migrate</p>
-            <p className="details-entry-meta">Repository: <a href="https://github.com/solrac031504/loveapp" target="_blank">https://github.com/solrac031504/loveapp</a></p>
+            <p className="details-entry-meta">Repository: <a href="https://github.com/solrac031504/loveapp" target="_blank">loveapp</a></p>
           </article>
           <article className="details-entry">
             <header className="details-entry-heading">
@@ -173,11 +173,19 @@ export default function Home() {
             </header>
             <p className="details-entry-meta">NSIN · Project Manager and Database Manager</p>
             <p className="details-tech">Node.js, Express, React, MySQL, Redis, DigitalOcean, Git, Agile, Jira</p>
-            <ul>
-              <li>Built a full-stack application to search and sort academic experts by geographic, institutional, and academic criteria.</li>
-              <li>Led a five-person cross-functional Agile team and completed the MVP three months ahead of schedule.</li>
-              <li>Managed and optimized a MySQL database with over 250 million records, returning large search results in under two minutes.</li>
-            </ul>
+            <p className="details-entry-description">
+              A full-stack platform for finding and sorting academic experts by geography, institution, and research area. It works with a MySQL database of over 250 million records, using Redis caching to quickly return large searches.
+            </p>
+            <p className="details-entry-meta">
+              Repository:{" "}
+              <a
+                href="https://github.com/solrac031504/Expert-Networks"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Expert-Networks
+              </a>
+            </p>
           </article>
         </section>
       </div>
