@@ -73,7 +73,7 @@ export default function Home() {
         </section>
 
         <section className="resume-card" id="resume" aria-labelledby="resume-title">
-          <h2 id="resume-title">Resume &amp; more</h2>
+          <h2 id="resume-title">About Me</h2>
           <p className="resume-copy">
             A home for my experience, education, and the skills I&apos;ve picked
             up along the way.
