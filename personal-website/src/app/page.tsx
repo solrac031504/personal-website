@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionNav from "../components/section-nav";
 
 const birthday = new Date(process.env.NEXT_PUBLIC_BIRTHDAY!);
 const today = new Date();
@@ -16,6 +17,7 @@ export default function Home() {
 
   return (
     <main className="site-shell" id="home">
+      <SectionNav />
       <header className="site-header">
         <a className="wordmark" href="#home" aria-label="Carlos Arturo Gonzalez Zavaleta, home">
           <span className="wordmark-icon" aria-hidden="true">

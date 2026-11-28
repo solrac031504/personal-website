@@ -29,6 +29,10 @@ a {
   color: inherit;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .site-shell {
   width: min(100% - 64px, 1180px);
   margin: 0 auto;
@@ -47,8 +51,101 @@ a {
 }
 
 .site-header {
+  padding-left: 60px;
   padding-bottom: 20px;
   border-bottom: 1px solid #dcded4;
+}
+
+.section-nav {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 20;
+}
+
+.section-nav-toggle {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid #52675b;
+  border-radius: 50%;
+  background: #1d332c;
+  box-shadow: 0 4px 14px rgb(28 41 36 / 16%);
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.section-nav-toggle:hover {
+  background: #2b453d;
+}
+
+.section-nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: #f5f4ee;
+}
+
+.section-nav-toggle:focus-visible,
+.section-nav-panel a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.section-nav-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: min(220px, calc(100vw - 40px));
+  padding: 8px;
+  border: 1px solid #52675b;
+  border-radius: 14px;
+  background: #1d332c;
+  box-shadow: 0 12px 30px rgb(28 41 36 / 20%);
+  opacity: 0;
+  transform: translateY(-8px);
+  transform-origin: top left;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 180ms ease;
+}
+
+.section-nav.is-open .section-nav-panel {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.section-nav-panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section-nav-panel a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #f5f4ee;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+
+.section-nav-panel a:hover,
+.section-nav-panel a:focus-visible {
+  background: #2b453d;
 }
 
 .wordmark {
@@ -147,6 +244,11 @@ a {
   padding: clamp(28px, 5vw, 58px);
   background: #1d332c;
   color: #f5f4ee;
+}
+
+.about-me-card,
+.details-section {
+  scroll-margin-top: 24px;
 }
 
 .eyebrow {
@@ -398,5 +500,17 @@ a {
 
   .page-title {
     font-size: 2.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .section-nav-toggle,
+  .section-nav-panel,
+  .section-nav-panel a {
+    transition: none;
   }
 }
