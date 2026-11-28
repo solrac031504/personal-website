@@ -84,18 +84,17 @@ export default function Home() {
           </div>
           <div className="link-placeholder">
             <span className="link-dot" aria-hidden="true" />
-            <p>Useful links and ways to find me will show up here.</p>
+            <p><b>LinkedIn:</b> <a href="www.linkedin.com/in/carlos-gonzalez-764b5b217">www.linkedin.com/in/carlos-gonzalez-764b5b217</a>
             <span className="link-arrow" aria-hidden="true">
               ↗
-            </span>
+            </span> </p>
+            <p><b>GitHub:</b> <a href="https://github.com/solrac031504">https://github.com/solrac031504</a>
+            <span className="link-arrow" aria-hidden="true">
+              ↗
+            </span></p>
           </div>
         </section>
       </div>
-
-      <footer className="site-footer">
-        <span>Thanks for stopping by.</span>
-        <a href="#home">Back to top ↑</a>
-      </footer>
     </main>
   );
 }
