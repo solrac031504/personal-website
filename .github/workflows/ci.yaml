@@ -29,7 +29,7 @@ jobs:
         run: npm ci
 
       - name: Cache Next.js build
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: personal-website/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('personal-website/package-lock.json') }}-${{ hashFiles('personal-website/**/*.js', 'personal-website/**/*.jsx', 'personal-website/**/*.ts', 'personal-website/**/*.tsx') }}
