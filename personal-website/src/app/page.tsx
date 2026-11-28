@@ -1,33 +1,18 @@
-"use client"
-
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 const birthday = new Date(process.env.NEXT_PUBLIC_BIRTHDAY!);
+const today = new Date();
 
 export default function Home() {
-  const [isBirthday, setIsBirthday] = useState<boolean>(false);
-  const [age, setAge] = useState<number>(0);
+  const isBirthday = birthday.getDate() === today.getDate() && birthday.getMonth() === today.getMonth();
+  const age = getAge(birthday);
 
   function getAge(dob: Date): number {
-    const today = new Date();
-
     const yearDiff = today.getFullYear() - dob.getFullYear();
     const monthDiff = today.getMonth() - dob.getMonth();
 
     return (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) ? yearDiff - 1 : yearDiff;
   }
-
-  useEffect(() => {
-    const today = new Date();
-
-    setIsBirthday(
-      birthday.getDate() === today.getDate() &&
-        birthday.getMonth() === today.getMonth(),
-    );
-
-    setAge(getAge(birthday))
-  }, []);
 
   return (
     <main className="site-shell" id="home">
