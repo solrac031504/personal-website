@@ -39,7 +39,7 @@ a {
 .wordmark,
 .portrait-caption,
 .links-heading,
-.link-placeholder,
+.links-list,
 .site-footer {
   display: flex;
   align-items: center;
@@ -222,29 +222,33 @@ a {
   font-size: clamp(2rem, 3vw, 2.8rem);
 }
 
+.links-card a:link {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.links-card a:visited {
+  color: #551a8b;
+  text-decoration: underline;
+}
+
 .links-spark {
   color: #899974;
   font-size: 2rem;
   line-height: 1;
 }
 
-.link-placeholder {
+.links-list {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   gap: 12px;
   margin-top: 25px;
   padding-top: 16px;
   border-top: 1px solid #cdd3c4;
 }
 
-.link-dot {
-  width: 8px;
-  height: 8px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-  background: #94a875;
-}
-
-.link-placeholder p {
-  flex: 1;
+.links-list p {
   margin: 0;
   color: #536052;
   font-size: 0.84rem;
