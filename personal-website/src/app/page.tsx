@@ -59,14 +59,13 @@ export default function Home() {
 
         <section className="about-me-card" id="about-me" aria-labelledby="about-me-title">
           <h2 id="about-me-title">About Me</h2>
-          <p className="about-me-copy">
-            I am a {age} year-old Database Developer with a Master of Science in Computer Science. 
-            I am highly interested in software development, database administration, and project management.
-            I am always open to working on new projects, so please feel free to reach out! I would love to participate.
-            I am also a native Spanish speaker.
-            I love developing new applications for both internal and community use.
-            In my free time, I also enjoy producing and playing music, cooking, working out, and playing video games.
-          </p>
+          <div className="about-me-copy">
+            <p>I am a {age} year-old Database Developer with a Master of Science in Computer Science and a native Spanish speaker.</p>
+            <p>I am highly interested in software development, database administration, and project management.</p>
+            <p>I am always open to working on new projects, so please feel free to reach out! I would love to participate.</p>
+            <p>I love developing new applications for both internal and community use.</p>
+            <p>In my free time, I also enjoy producing and playing music, cooking, working out, and playing video games.</p>
+          </div>
         </section>
 
         <section className="links-card" id="links" aria-labelledby="links-title">
@@ -84,6 +83,10 @@ export default function Home() {
               ↗
             </span> </p>
             <p><b>GitHub:</b> <a href="https://github.com/solrac031504" target="_blank">https://github.com/solrac031504</a>
+            <span className="link-arrow" aria-hidden="true">
+              ↗
+            </span></p>
+            <p><b>SoundCloud:</b> <a href="https://soundcloud.com/carlos-gonzalez-98597846" target="_blank">https://soundcloud.com/carlos-gonzalez-98597846</a>
             <span className="link-arrow" aria-hidden="true">
               ↗
             </span></p>
