@@ -88,19 +88,19 @@ export default function Home() {
           </span>
         </section>
 
-        <section className="projects-card" id="projects" aria-labelledby="projects-title">
-          <div className="projects-heading">
+        <section className="links-card" id="links" aria-labelledby="links-title">
+          <div className="links-heading">
             <div>
-              <h2 id="projects-title">Projects</h2>
+              <h2 id="links-title">Links</h2>
             </div>
-            <span className="projects-spark" aria-hidden="true">
+            <span className="links-spark" aria-hidden="true">
               ✳
             </span>
           </div>
-          <div className="project-placeholder">
-            <span className="project-dot" aria-hidden="true" />
-            <p>Personal projects and side quests will show up here.</p>
-            <span className="project-arrow" aria-hidden="true">
+          <div className="link-placeholder">
+            <span className="link-dot" aria-hidden="true" />
+            <p>Useful links and ways to find me will show up here.</p>
+            <span className="link-arrow" aria-hidden="true">
               ↗
             </span>
           </div>
