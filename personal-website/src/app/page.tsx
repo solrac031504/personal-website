@@ -23,7 +23,7 @@ function getServerSnapshot() {
 }
 
 export default function Home() {
-  const isBirthday = useSyncExternalStore(
+  const isBirthday = useSyncExternalStore<boolean>(
     subscribeToBirthday,
     getBirthdaySnapshot,
     getServerSnapshot,
