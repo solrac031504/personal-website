@@ -147,7 +147,7 @@ export default function Home() {
             <ul>
               <li>Built a full-stack application to search and sort academic experts by geographic, institutional, and academic criteria.</li>
               <li>Led a five-person cross-functional Agile team and completed the MVP three months ahead of schedule.</li>
-              <li>Managed and optimized a MySQL database with over 250 million records, returning search results in under two minutes.</li>
+              <li>Managed and optimized a MySQL database with over 250 million records, returning large search results in under two minutes.</li>
             </ul>
           </article>
         </section>
