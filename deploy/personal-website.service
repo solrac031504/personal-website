@@ -1,0 +1,22 @@
+[Unit]
+Description=Personal website (Next.js)
+After=network.target
+
+[Service]
+User=deploy
+Group=deploy
+WorkingDirectory=/srv/personal-website/app/personal-website
+Environment=NODE_ENV=production
+# Keep Node's heap modest: this box is shared with LoveApp on 1 GB of RAM.
+Environment=NODE_OPTIONS=--max-old-space-size=256
+
+# Bind to localhost only; Nginx is the public entry point.
+ExecStart=/srv/personal-website/app/personal-website/node_modules/.bin/next start --hostname 127.0.0.1 --port 3000
+
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
