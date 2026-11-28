@@ -39,6 +39,23 @@ html {
   padding: 28px 0 24px;
 }
 
+/* Wide screens: the open sidebar pushes the page content to the right so it
+   never covers a section heading. */
+@media (min-width: 1024px) {
+  html[data-nav-open="true"] body {
+    padding-left: 260px;
+  }
+}
+
+/* Narrow screens: there is no room to push the content, so the menu overlays
+   the page. Scroll targets stop below the panel so headings stay visible. */
+@media (max-width: 1023px) {
+  html[data-nav-open="true"] .about-me-card,
+  html[data-nav-open="true"] .details-section {
+    scroll-margin-top: 300px;
+  }
+}
+
 .site-header,
 .wordmark,
 .portrait-caption,
@@ -454,6 +471,10 @@ html {
 }
 
 @media (max-width: 720px) {
+  body {
+    transition: padding-left 250ms ease;
+  }
+
   .site-shell {
     width: min(100% - 36px, 540px);
     padding-top: 20px;
@@ -508,6 +529,7 @@ html {
     scroll-behavior: auto;
   }
 
+  body,
   .section-nav-toggle,
   .section-nav-panel,
   .section-nav-panel a {

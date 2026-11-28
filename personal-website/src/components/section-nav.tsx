@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const sectionLinks = [
   { href: "#about-me", label: "About Me" },
@@ -11,6 +11,16 @@ const sectionLinks = [
 
 export default function SectionNav() {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Expose the open state on <html> so the page layout can make room for the
+  // sidebar (and offset scroll targets) with plain CSS.
+  useEffect(() => {
+    const root = document.documentElement;
+    root.dataset.navOpen = String(isOpen);
+    return () => {
+      delete root.dataset.navOpen;
+    };
+  }, [isOpen]);
 
   return (
     <nav
